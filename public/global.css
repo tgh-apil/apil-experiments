@@ -6,11 +6,11 @@ html, body {
 
 body {
 	color: #fff;
-	background-color: #000;
+	background-color: #0e0e0e;
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
-	font-family: 'IBM Plex Mono', monospace;
+	font-family: 'Open Sans',sans-serif;
 	font-size: 16px;
 }
 
@@ -19,7 +19,6 @@ a {
 	text-decoration: none;
 	transition: all;
 	transition-duration: 100ms;
-	font-size: 16px;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 	padding-right: 1rem;
@@ -61,6 +60,8 @@ h1 {
 }
 
 h2 {
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 300;
 	font-size: 30px;
 	color: #0ec2a7
 }
@@ -68,8 +69,7 @@ h2 {
 button {
 	color: #000;
 	background-color: #fff;
-	font-family: 'IBM Plex Mono',
-	monospace;
+	font-family: 'IBM Plex Mono', monospace;
 	outline: none;
 	border: none;
 	transition: all;
@@ -110,6 +110,11 @@ button:focus {
 	border-color: #666;
 }
 
+li {
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 200;
+}
+
 .wrapper {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -128,7 +133,7 @@ button:focus {
 
 /* Track */
 ::-webkit-scrollbar-track {
-	background: #000;
+	background: #0e0e0e;
 }
 
 /* Handle */

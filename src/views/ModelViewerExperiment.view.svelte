@@ -9,9 +9,10 @@
             <li>Potential for high RAM usage</li>
             <li>Potential for high CPU/GPU usage</li>
             <li>High impact on battery drain</li>
-            <li>Potential high network use (some models are >15 mb)</li>
-            <li>Public access to all materials</li>
+            <li>High network use (some models are >15 mb)</li>
+            <li>Public access to all messages</li>
             <li>Login required to post comments and markers</li>
+            <li>Markers and messages appear in real-time for all users!</li>
             <li>Not mobile optimized</li>
         </ul>
         <h2>Tech Stack</h2>
@@ -25,6 +26,20 @@
         </ul>
     </div>
     <div class="split-container">
+        <h2>How to Use</h2>
+        <p><strong>Controls:</strong></p>
+        <ul>
+            <li>Left click: pan</li>
+            <li>Right click: rotate</li>
+            <li>Mousewheel: zoom in/out</li>
+        </ul>
+        <p><strong>Collaboration options:</strong></p>
+        <p>Login required to leave messages or markers</p>
+        <ul>
+            <li>Double click anywhere on the model to leave a maker with message</li>
+            <li>Send a global message in the chatbox</li>
+        </ul>
+        <p>The markers and messages are persistent and can be viewed by all users.</p>
         <h2>Problem Space</h2>
         <p>There are a tonne of excellent 3D model viewers online.</p>
         <p>But, not all of them have the features we need:</p>
@@ -38,21 +53,8 @@
         <p>Lastly, most 3D viewers treat the viewing experience as passive providing users with limited (or zero) options with each other and the models.</p>
         <ul>
             <li>Explore the models in a variety of ways</li>
-            <li>Actively engage with the models and other users by leaving markers and comments</li>
+            <li>Actively engage with the models and other users by leaving markers and messages</li>
         </ul>
-        <h2>How to Use</h2>
-        <p>Launch this experiment.  A new page will load with a list of 3D models.</p>
-        <p>Click on any of the models and the collaborative 3D viewer will load.</p>
-        <p>Controls:</p>
-        <ul>
-            <li>Left click: pan</li>
-            <li>Right click: rotate</li>
-            <li>Mousewheel: zoom in/out</li>
-        </ul>
-        <p>You can leave a global comment for each model, and you can double click anywhere on the model to leave a marker with a region specific comment.</p>
-        <p>Use these markers to highlight points of interest on the model.</p>
-        <p>Remember: the markers are persistent and can be viewed by all users.</p>
-        <p>To delete a marker, just double click it.</p>
     </div>
 </div>
 

@@ -21,7 +21,7 @@
         }
 
         scrollToBottom();
-    })
+    });
 
     async function scrollToBottom() {
         await tick();
@@ -76,6 +76,7 @@
 
 <style>
     .horizontal-wrapper {
+        background-color: #0e0e0e;
         display: grid;
         grid-template-rows: 3fr 1fr;
         grid-gap: 20px;

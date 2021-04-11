@@ -12,7 +12,7 @@
         <p>Mostly physical models, but sometimes digital.</p>
         <p>Not all of our digital work is ready for a full release.</p>  
         <p>The purpose of this app is to exhibit some of these experimental concepts, and generate feedback from our users</p>
-        <p>Since these are experiments, expect:</p>
+        <p><strong>Since these are experiments, expect:</strong></p>
         <ul>
             <li>Bugs</li>
             <li>Unoptimized code</li>

@@ -51,6 +51,10 @@
         grid-gap: 10px;
     }
 
+    .nav-links a {
+        font-family: 'IBM Plex Mono', monospace;
+    }
+
     .nav-links a:hover {
         border-bottom: solid 10px #0ec2a7;
     }

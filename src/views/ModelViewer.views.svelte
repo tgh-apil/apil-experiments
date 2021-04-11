@@ -1,4 +1,5 @@
 <script>
+    import { tick } from 'svelte';
     import { push } from 'svelte-spa-router';
     import { hasPopup, modelDoc } from '../stores';
     import firebase from 'firebase/app';
@@ -61,10 +62,7 @@
 
     let modelObjectList = [];
 
-    // objects loading at different times means they appear at different times...
-    // need to sort this by name.
-
-    function createModelObjectList() {
+    async function createModelObjectList() {
         modelDataList.forEach(modelData => {
             modelList.forEach(async model => {
                 // check if thumbnail exists for our model
@@ -88,7 +86,6 @@
                     } 
 
                     modelObjectList.push(modelObject);
-                    modelObjectList = modelObjectList;
                 } else {
                     let modelObject = {
                         thumbnail: modelThumbnail,
@@ -97,18 +94,28 @@
                         filePath: model.fullPath,
                         description: 'no description yet!',
                     }
-                    
-                    console.log(modelObject.docId);
 
                     modelObjectList.push(modelObject);
-                    modelObjectList = modelObjectList;
                 }
+
+                listSort();
             })
         })
+    }
 
-        // why isn't my sort working?
-        modelObjectList = modelObjectList.sort((a, b) => (a.title > b.title) ? 1 : -1);
-        console.log(modelObjectList);
+    function listSort() {
+        modelObjectList.sort((a, b) => {
+            let aTitle = a.title.toUpperCase();
+            let bTitle = b.title.toUpperCase();
+            
+            if (aTitle < bTitle) {
+                return -1
+            } else {
+                return 1
+            }
+        });
+
+        modelObjectList = modelObjectList;
     }
 
     let modelDocId, modelTitle, modelDescription;
@@ -208,7 +215,7 @@
     }
 
     .viewer-container {
-        background-color: #000;
+        background-color: #0e0e0e;
         width: 100%;
         height: 100%;
         z-index: 0;
@@ -233,10 +240,10 @@
     }
 
     .info-container {
+        background-color: #0e0e0e;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         grid-gap: 20px;
-        background-color: #000;
         margin-bottom: 10px;
     }
 
@@ -250,6 +257,7 @@
     }
 
     .model-title-container h3{
+        background-color: #0e0e0e;
         position: absolute;
         top: 55vh;
         left: 0;

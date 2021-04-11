@@ -67,7 +67,7 @@
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
-	scene.background = new THREE.Color(0x000000);
+	scene.background = new THREE.Color(0x0e0e0e);
 
 	const renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -437,6 +437,7 @@
 <style>
 
 .model-viewer {
+    background-color: #0e0e0e;
     display: grid;
     justify-content: center;
 }
