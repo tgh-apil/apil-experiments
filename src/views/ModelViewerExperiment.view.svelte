@@ -6,6 +6,7 @@
     <div class="split-container">
                 <h2>Experiment Notes</h2>
         <ul>
+            <li><strong>Not mobile optimized</strong></li>
             <li>Potential for high RAM usage</li>
             <li>Potential for high CPU/GPU usage</li>
             <li>High impact on battery drain</li>
@@ -13,7 +14,6 @@
             <li>Public access to all messages</li>
             <li>Login required to post comments and markers</li>
             <li>Markers and messages appear in real-time for all users!</li>
-            <li>Not mobile optimized</li>
         </ul>
         <h2>Tech Stack</h2>
         <ul>
@@ -26,30 +26,30 @@
         </ul>
     </div>
     <div class="split-container">
-        <h2>How to Use</h2>
-        <p><strong>Controls:</strong></p>
-        <ul>
-            <li>Left click: pan</li>
-            <li>Right click: rotate</li>
-            <li>Mousewheel: zoom in/out</li>
-        </ul>
-        <p><strong>Collaboration options:</strong></p>
+        <h2>Instructions</h2>
+        <p><strong>Collaboration Features:</strong></p>
         <p>Login required to leave messages or markers</p>
         <ul>
             <li>Double click anywhere on the model to leave a maker with message</li>
             <li>Send a global message in the chatbox</li>
         </ul>
         <p>The markers and messages are persistent and can be viewed by all users.</p>
+        <p><strong>Controls:</strong></p>
+        <ul>
+            <li>Left click: pan</li>
+            <li>Right click: rotate</li>
+            <li>Mousewheel: zoom in/out</li>
+        </ul>
         <h2>Problem Space</h2>
         <p>There are a tonne of excellent 3D model viewers online.</p>
-        <p>But, not all of them have the features we need:</p>
+        <p>Unfortunately, not all of them have the features we need:</p>
         <ul>
             <li>clipping planes</li>
             <li>toggle-able objects</li>
             <li>direct control of scene elements</li>
             <li>etc...</li>
         </ul>
-        <p>Some viewers with most of these features are locked into specific file formats.</p>
+        <p>Some viewers with some/most of these features are locked into specific file formats.</p>
         <p>Lastly, most 3D viewers treat the viewing experience as passive providing users with limited (or zero) options with each other and the models.</p>
         <ul>
             <li>Explore the models in a variety of ways</li>

@@ -87,6 +87,7 @@
                     title: modelData.title,
                     filePath: modelData.filePath + modelData.fileName,
                     description: modelData.description,
+                    poster: modelData.poster,
                 } 
                 modelObjectList.push(modelObject);
             } else {
@@ -96,6 +97,7 @@
                     title: model.name,
                     filePath: model.fullPath,
                     description: 'no description yet!',
+                    poster: modelData.poster,
                 }
                 modelObjectList.push(modelObject);
             }
@@ -149,6 +151,12 @@
         hasPopup.update(src => src = true);
     }
 
+    let currentMouseOver = 'Select Model';
+
+    function pointerEnter(modelTitle, poster) {
+        currentMouseOver = `${modelTitle} by ${poster}`;
+    }
+
     function popupViewer() {
         // not happy with this but it stops the memory leak
         location.reload();
@@ -160,13 +168,17 @@
 <div class="container">
     <div>
         <h1>COLLABORATIVE VIEWER</h1>
+        <h2>{currentMouseOver}</h2>
     </div>
     <div>
         <div class="wrapper">
             <div class="file-list-container">
                 {#each modelObjectList as model}
-                    <div class="card-container" on:click={setModel(model.docId, model.filePath, model.title, model.description)}>
-                        <Card picturePath={model.thumbnail} altText={`screenshot of ${model.title}`} title={model.title} />
+                    <div class="card-container" 
+                    on:pointerenter={pointerEnter(model.title, model.poster)} 
+                    on:pointerleave={() => currentMouseOver = 'Select Model'} 
+                    on:click={setModel(model.docId, model.filePath, model.title, model.description)}>
+                        <Card picturePath={model.thumbnail} altText={`screenshot of ${model.title}`} title={model.title} poster={model.poster} />
                     </div>
                 {/each}
             </div>
@@ -203,7 +215,6 @@
 </div>
 
 <style>
-
     .container {
         width: 100%;
         position: relative;
@@ -211,8 +222,8 @@
 
     .file-list-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 260px));
-        gap: 2px;
+        grid-template-columns: repeat(auto-fill, minmax(252px, 252px));
+        gap: 20px;
     }
 
     .card-container {
@@ -220,13 +231,15 @@
         align-items: center;
         justify-items: center;
         height: 100%;
-        border: 5px solid transparent;
         transition: all;
         transition-duration: 200ms;
+        box-shadow: 7px 10px rgb(100, 100, 100);
     }
 
     .card-container:hover {
-        border: 5px solid #fff;
+        box-shadow: 5px 8px rgb(53, 53, 53);
+        transform: translateY(2px);
+        transform: translateX(2px);
     }
 
     .viewer-container {

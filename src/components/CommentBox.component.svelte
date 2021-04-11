@@ -1,9 +1,10 @@
 <script>
     import { onDestroy, tick } from 'svelte';
     import { user, modelDoc } from '../stores.js'
-    import LoginButton from './LoginButton.component.svelte';
     import firebase from 'firebase/app';
     import { db } from '../firebase';
+    import CommentBubble from './CommentBubble.component.svelte';
+    import LoginButton from './LoginButton.component.svelte';
 
     const modelDocRef = db.collection('models').doc($modelDoc);
     let commentArray = [];
@@ -53,9 +54,10 @@
         <div id="comment-content">
             {#each commentArray as comment}
                 <div class='comment-object'>
-                    <p>{comment.poster}</p>
+                    <!-- <p>{comment.poster}</p>
                     <p>{comment.comment}</p>
-                    <p>{comment.timestamp.toDate()}</p>
+                    <p>{comment.timestamp.toDate()}</p> -->
+                    <CommentBubble userName={comment.poster} timestamp={comment.timestamp.toDate()} comment={comment.comment}/>
                 </div>
             {/each}
         </div>
