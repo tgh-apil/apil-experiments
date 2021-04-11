@@ -21,9 +21,9 @@
 
     getModelsInStorage();
 
-    // find all models in the root directory and add to array
     let modelList = [];
-
+    
+    // find all models in the root directory and add to array
     async function getModelsInStorage() {
         await modelDirRoot.listAll()
             .then((res) => {
@@ -35,7 +35,6 @@
                             res.items.forEach((itemRef) => {
                                 if (itemRef.name.slice(-3) === 'glb') {
                                     modelList.push(itemRef);
-                                    modelList = modelList.sort();
                                 }
                             })
                         })
@@ -63,43 +62,59 @@
     let modelObjectList = [];
 
     async function createModelObjectList() {
-        modelDataList.forEach(modelData => {
-            modelList.forEach(async model => {
-                // check if thumbnail exists for our model
-                let thumbnailPath = model.fullPath.slice(0, -model.name.length) + 'thumbnail.png';
+        console.log(modelDataList);
+        let modelStorageList = [];
+
+        modelList.forEach(model => {
+            modelStorageList.push(model.name);
+        })
+
+        modelDataList.forEach(async modelData => {
+            if (modelStorageList.includes(modelData.fileName)) {
+                let thumbnailPath = modelData.filePath + 'thumbnail.png';
+
                 await storageRef.child(thumbnailPath).getDownloadURL()
                     .then((url) => {
                         modelThumbnail = url;
                     })
                     .catch((err) => {
-                        modelThumbnail = '../images/no_img_set.png';
                         console.log(`${err} No thumbnail exists for this model`);
                     });
-                
-                if (model.name === modelData.fileName) {
-                    let modelObject = {
-                        thumbnail: modelThumbnail,
-                        docId: modelData.docId,  
-                        title: modelData.title,
-                        filePath: modelData.filePath + modelData.fileName,
-                        description: modelData.description,
-                    } 
 
-                    modelObjectList.push(modelObject);
-                } else {
-                    let modelObject = {
-                        thumbnail: modelThumbnail,
-                        docId: 'none',
-                        title: model.name,
-                        filePath: model.fullPath,
-                        description: 'no description yet!',
-                    }
-
-                    modelObjectList.push(modelObject);
+                let modelObject = {
+                    thumbnail: modelThumbnail,
+                    docId: modelData.docId,  
+                    title: modelData.title,
+                    filePath: modelData.filePath + modelData.fileName,
+                    description: modelData.description,
+                } 
+                modelObjectList.push(modelObject);
+            } else {
+                let modelObject = {
+                    thumbnail: '../images/no_img_set.png',
+                    docId: 'none',
+                    title: model.name,
+                    filePath: model.fullPath,
+                    description: 'no description yet!',
                 }
+                modelObjectList.push(modelObject);
+            }
+            listSort();
+        })
+    }
 
-                listSort();
-            })
+    // check if thumbnail exists for our model
+    async function getThumbnail() {
+        modelList.forEach(async model => {
+            let thumbnailPath = model.fullPath.slice(0, -model.name.length) + 'thumbnail.png';
+            await storageRef.child(thumbnailPath).getDownloadURL()
+                .then((url) => {
+                    modelThumbnail = url;
+                })
+                .catch((err) => {
+                    modelThumbnail = '../images/no_img_set.png';
+                    console.log(`${err} No thumbnail exists for this model`);
+                });
         })
     }
 
@@ -196,7 +211,7 @@
 
     .file-list-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(210px, 210px));
+        grid-template-columns: repeat(auto-fill, minmax(260px, 260px));
         gap: 2px;
     }
 

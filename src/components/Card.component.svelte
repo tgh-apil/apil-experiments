@@ -2,17 +2,12 @@
     export let picturePath;
     export let altText;
     export let title;
-
-    if (picturePath === '') {
-        picturePath = '../../images/no_img_set.png'
-    }
-
 </script>
 
 <div class="card">
     <div class="card-content">
         <div class="thumbnail-container">
-            <img src={picturePath} alt={altText} width="200" height="200">
+            <img src={picturePath} alt={altText} width="250" height="250">
         </div>
         <div class="title-container">
             <h3>{ title }</h3>
@@ -23,14 +18,14 @@
 <style>
 
     .card { 
-        color: #000;
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 350px;
         position: relative;
         cursor: pointer;
     }
 
     .title-container {
+        background-color: #fff;
         position: absolute;
         left: 5px;
         bottom: 0;
