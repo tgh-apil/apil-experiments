@@ -28,7 +28,7 @@
                 } else {
                     markersInScene.push(marker.id);
                     // make sure the last argument is false or we get caught in an endless loop!
-                    spawnMarker(marker.x, marker.y, marker.z, marker.text, false);
+                    spawnMarker(marker.x, marker.y, marker.z, marker.text, marker.poster, false);
                 }
             })
         } else {
@@ -234,8 +234,6 @@
                 }
             });
 
-            // // need a better way to implment this -- need to check the render order of the object every time the camera changes position...
-            // objectFolder.add(model.material, 'opacity', 0.3, 1).name('Opacity').listen();
             objectFolder.add(model.material, 'wireframe', false, true).name(`Wireframe`).listen();
         })
         
@@ -328,6 +326,8 @@
     }
 
     function onDoubleClick() {
+        // check to see if current user is the poster of the marker
+
         if (INTERSECTED.geometry.type === 'SphereGeometry') {
             if (window.confirm("Are you sure you want to delete this marker?")) {
                 INTERSECTED.parent.remove(INTERSECTED);
@@ -342,18 +342,34 @@
             if (text === null | text === "") {
                 console.log('user cancelled or input is empty');
             } else {
-                spawnMarker(rayIntersectPoint.x, rayIntersectPoint.y, rayIntersectPoint.z, text, true);
+                spawnMarker(rayIntersectPoint.x, rayIntersectPoint.y, rayIntersectPoint.z, text, $user.displayName, true);
             }
         }
     }
 
-    function spawnMarker(x, y, z, text, writeToDb) {
+    function spawnMarker(x, y, z, text, poster, writeToDb) {
         const xPos = x;
         const yPos = y;
         const zPos = z;
 
+        console.log(writeToDb);
+
         const geometry = new THREE.SphereGeometry(3, 8, 8);
-        const material = new THREE.MeshStandardMaterial({color: 0xffffff});
+
+        // check if the user is the poster of the marker
+        // if they are, make the marker the teal-ish colour
+        // otherwise make it white
+        let material;
+        // material = new THREE.MeshLambertMaterial({color: 0x000000, emissive: 0x000000, emissiveIntensity: 0.75});
+
+        if (poster === $user.displayName) {
+            material = new THREE.MeshLambertMaterial({color: 0x0ec2a7, emissive: 0x0ec2a7, emissiveIntensity: 1});
+            console.log('is poster and logged in')
+        } else {
+            material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.50});
+            console.log('is not  poster and logged in')
+        }
+
         const sphere = new THREE.Mesh(geometry, material);
         sphere.receiveShadow = true;
         sphere.name = text;
@@ -365,7 +381,7 @@
             INTERSECTED.add(sphere)
         }
 
-        // nope -- need to separate the objects from the GUI from the objects to be read by the raycaster
+        // allows us to mouse over the markers, but not consider them part of the UI to control apperance
         intersectObjects.push(sphere);
 
         if (!writeToDb) {
@@ -373,7 +389,6 @@
         } else {
             writeDb(xPos, yPos, zPos, text); 
         }
-        // console.log(`x: ${xPos} y:${yPos} z:${zPos}`);
     }
 
     window.addEventListener('dblclick', doubleClickCheck, false);
