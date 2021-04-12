@@ -54,9 +54,6 @@
         <div id="comment-content">
             {#each commentArray as comment}
                 <div class='comment-object'>
-                    <!-- <p>{comment.poster}</p>
-                    <p>{comment.comment}</p>
-                    <p>{comment.timestamp.toDate()}</p> -->
                     <CommentBubble userName={comment.poster} timestamp={comment.timestamp.toDate()} comment={comment.comment}/>
                 </div>
             {/each}
@@ -91,10 +88,6 @@
 
     .comment-object {
         margin-bottom: 0.5rem;
-    }
-
-    .comment-object p {
-        font-size: 12px;
     }
 
     .form-container {

@@ -65,6 +65,7 @@
         console.log(modelDataList);
         let modelStorageList = [];
 
+        // check if a thumbnail exists for the model
         modelList.forEach(model => {
             modelStorageList.push(model.name);
         })
@@ -102,21 +103,6 @@
                 modelObjectList.push(modelObject);
             }
             listSort();
-        })
-    }
-
-    // check if thumbnail exists for our model
-    async function getThumbnail() {
-        modelList.forEach(async model => {
-            let thumbnailPath = model.fullPath.slice(0, -model.name.length) + 'thumbnail.png';
-            await storageRef.child(thumbnailPath).getDownloadURL()
-                .then((url) => {
-                    modelThumbnail = url;
-                })
-                .catch((err) => {
-                    modelThumbnail = '../images/no_img_set.png';
-                    console.log(`${err} No thumbnail exists for this model`);
-                });
         })
     }
 
@@ -285,7 +271,6 @@
     }
 
     .model-title-container h3{
-        background-color: #0e0e0e;
         position: absolute;
         top: 55vh;
         left: 0;

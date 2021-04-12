@@ -3,8 +3,6 @@
     export let userName;
     export let timestamp;
     export let comment;
-
-    console.log($user.displayName);
 </script>
 
 {#if userName == $user.displayName}
