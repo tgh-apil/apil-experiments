@@ -352,7 +352,7 @@
         const yPos = y;
         const zPos = z;
 
-        const geometry = new THREE.SphereGeometry(3, 8, 8);
+        const geometry = new THREE.SphereGeometry(4, 8, 8);
 
         // check if the user is the poster of the marker
         // if they are, make the marker the teal-ish colour
@@ -360,11 +360,11 @@
         let material;
 
         if (!$user) {
-            material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.50});
+            material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 1});
         } else if (poster === $user.displayName) {
             material = new THREE.MeshLambertMaterial({color: 0x0ec2a7, emissive: 0x0ec2a7, emissiveIntensity: 1});
         } else {
-            material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.50});
+            material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 1});
         }
 
         const sphere = new THREE.Mesh(geometry, material);
