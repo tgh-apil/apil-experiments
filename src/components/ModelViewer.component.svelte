@@ -351,25 +351,19 @@
         const yPos = y;
         const zPos = z;
 
-        console.log(writeToDb);
-
         const geometry = new THREE.SphereGeometry(3, 8, 8);
 
         // check if the user is the poster of the marker
         // if they are, make the marker the teal-ish colour
         // otherwise make it white
         let material;
-        // material = new THREE.MeshLambertMaterial({color: 0x000000, emissive: 0x000000, emissiveIntensity: 0.75});
 
         if (!$user) {
             material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.50});
-            console.log('user not logged in!')
         } else if (poster === $user.displayName) {
             material = new THREE.MeshLambertMaterial({color: 0x0ec2a7, emissive: 0x0ec2a7, emissiveIntensity: 1});
-            console.log('is poster and logged in')
         } else {
             material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.50});
-            console.log('is not  poster and logged in')
         }
 
         const sphere = new THREE.Mesh(geometry, material);

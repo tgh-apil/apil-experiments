@@ -6,6 +6,7 @@
     <div class="split-container">
                 <h2>Experiment Notes</h2>
         <ul>
+            <li><strong>Deleting markers is non-persistant and only local: we're working on fixing this!</strong></li>
             <li><strong>Not mobile optimized</strong></li>
             <li>Potential for high RAM usage</li>
             <li>Potential for high CPU/GPU usage</li>
@@ -34,6 +35,10 @@
             <li>Send a global message in the chatbox</li>
         </ul>
         <p>The markers and messages are persistent and can be viewed by all users.</p>
+        <ul>
+            <li>Your markers are in <span style="color: #0ec2a7"><strong>teal</strong></span></li>
+            <li>Other users' markers are in <span style="color: #ffffff"><strong>white</strong></span></li>
+        </ul>
         <p><strong>Controls:</strong></p>
         <ul>
             <li>Left click: pan</li>
