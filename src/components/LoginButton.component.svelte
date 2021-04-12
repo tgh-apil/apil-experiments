@@ -13,7 +13,7 @@
 {#if $user}
     <button class="logon-btn" on:click={ () => auth.signOut() }>Signout</button>
 {:else}
-    <button class="logon-btn" on:click={login}>
+    <button class="logon-btn" on:click|preventDefault={login}>
         Login
     </button>
 {/if}

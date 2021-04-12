@@ -327,7 +327,6 @@
 
     function onDoubleClick() {
         // check to see if current user is the poster of the marker
-
         if (INTERSECTED.geometry.type === 'SphereGeometry') {
             if (window.confirm("Are you sure you want to delete this marker?")) {
                 INTERSECTED.parent.remove(INTERSECTED);
@@ -362,7 +361,10 @@
         let material;
         // material = new THREE.MeshLambertMaterial({color: 0x000000, emissive: 0x000000, emissiveIntensity: 0.75});
 
-        if (poster === $user.displayName) {
+        if (!$user) {
+            material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.50});
+            console.log('user not logged in!')
+        } else if (poster === $user.displayName) {
             material = new THREE.MeshLambertMaterial({color: 0x0ec2a7, emissive: 0x0ec2a7, emissiveIntensity: 1});
             console.log('is poster and logged in')
         } else {

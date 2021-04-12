@@ -5,15 +5,7 @@
     export let comment;
 </script>
 
-{#if userName == $user.displayName}
-    <div class="poster-comment-bubble">
-        <div class='comment-bubble-container'>
-            <p class="username">{ userName }</p>
-            <p class="comment">{ comment }</p>
-        </div>
-    </div>
-    <p class="poster-time">{ timestamp }</p>
-{:else}
+{#if !$user || userName != $user.displayName}
     <div class="other-comment-bubble">
         <div class='comment-bubble-container'>
             <p class="username">{ userName }</p>
@@ -21,6 +13,14 @@
         </div>
     </div>
     <p class="other-time">{ timestamp }</p>
+{:else if userName == $user.displayName}
+    <div class="poster-comment-bubble">
+        <div class='comment-bubble-container'>
+            <p class="username">{ userName }</p>
+            <p class="comment">{ comment }</p>
+        </div>
+    </div>
+    <p class="poster-time">{ timestamp }</p>
 {/if}
 
 <style>
