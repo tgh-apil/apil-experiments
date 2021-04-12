@@ -272,7 +272,7 @@
 
     .model-title-container h3{
         position: absolute;
-        top: 55vh;
+        top: 50vh;
         left: 0;
     }
 

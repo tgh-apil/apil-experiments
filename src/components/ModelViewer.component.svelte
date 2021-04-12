@@ -42,6 +42,7 @@
         const markerModel = {
             // the id has to be unique and auto generated
             id: Math.floor(Math.random() * 100000),
+            parent: INTERSECTED.name,
             poster: $user.displayName,
             x: xPos,
             y: yPos,
@@ -373,9 +374,11 @@
         sphere.position.set(xPos, yPos, zPos);
         scene.add(sphere);
 
+        // sets parenting prior to loading from database
         if (INTERSECTED != null) {
-            INTERSECTED.add(sphere)
-        }
+            // setParent(sphere, INTERSECTED);
+            INTERSECTED.add(sphere);
+        } 
 
         // allows us to mouse over the markers, but not consider them part of the UI to control apperance
         intersectObjects.push(sphere);
@@ -385,6 +388,11 @@
         } else {
             writeDb(xPos, yPos, zPos, text); 
         }
+    }
+
+    function setParent(object, parent) {
+        console.log(parent.name);
+        parent.add(object);
     }
 
     window.addEventListener('dblclick', doubleClickCheck, false);

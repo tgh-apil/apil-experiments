@@ -7,6 +7,7 @@
                 <h2>Experiment Notes</h2>
         <ul>
             <li><strong>Deleting markers is non-persistant and only local: we're working on fixing this!</strong></li>
+            <li><strong>Markers are not parented to objects in the scene -- they will persist even if you hide the object its on.  We're working on it.</strong></li>
             <li><strong>Not mobile optimized</strong></li>
             <li>Potential for high RAM usage</li>
             <li>Potential for high CPU/GPU usage</li>
@@ -24,6 +25,12 @@
             <li><a href="https://www.blender.org/">Blender: Model texturing and compression</a></li>
             <li><a href="https://threejs.org/">three.js: model viewer</a></li>
             <li><a href="https://svelte.dev/">Svelte: front-end framework</a></li>
+        </ul>
+        <h2>Authors</h2>
+        <ul>
+            <li>Joshua Qua Hiansen</li>
+            <li>Sachin Khargie</li>
+            <li>Azad Mashari</li>
         </ul>
     </div>
     <div class="split-container">
