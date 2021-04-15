@@ -48,9 +48,9 @@
         </ul>
         <p><strong>Controls:</strong></p>
         <ul>
-            <li>Left click: pan</li>
-            <li>Right click: rotate</li>
-            <li>Mousewheel: zoom in/out</li>
+            <li>Middle mouse button: <stron>pan</stron></li>
+            <li>Right mouse button: <stron>rotate</stron></li>
+            <li>Mousewheel up/down: <stron>zoom in/out</stron></li>
         </ul>
         <h2>Problem Space</h2>
         <p>There are a tonne of excellent 3D model viewers online.</p>

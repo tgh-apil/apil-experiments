@@ -80,29 +80,37 @@
     camera.lookAt(scene.position);
     scene.add(camera);
 
+    // set axis
+    const axesHelper = new THREE.AxesHelper(200);
+    scene.add(axesHelper)
+
     // set lights
-	const spotlight = new THREE.SpotLight(0xffffff, 0.50);
+	const spotlight = new THREE.SpotLight(0xffffff, 0.5);
 	spotlight.position.set(0, 700, 0);
 	scene.add(spotlight);
 
-    const pointLight1 = new THREE.PointLight(0xffffff, 0.8);
-    pointLight1.position.set(0, 0, 150);
+    const pointLight1 = new THREE.PointLight(0xffffff, 0.75);
+    pointLight1.position.set(0, 70, 150);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0xffffff, 0.5);
-    pointLight2.position.set(0, 0, -150);
+    const pointLight2 = new THREE.PointLight(0xffffff, 0.50);
+    pointLight2.position.set(0, 70, -150);
     scene.add(pointLight2);
 
-    const pointLight3 = new THREE.PointLight(0xffffff, 0.8);
-    pointLight3.position.set(150, 0, 0);
+    const pointLight3 = new THREE.PointLight(0xffffff, 0.75);
+    pointLight3.position.set(150, 70, 0);
     scene.add(pointLight3);
 
-    const pointLight4 = new THREE.PointLight(0xffffff, 0.5);
-    pointLight4.position.set(-150, 0, 0);
+    const pointLight4 = new THREE.PointLight(0xffffff, 0.50);
+    pointLight4.position.set(-150, 70, 0);
     scene.add(pointLight4);
 
+    const pointLight5 = new THREE.PointLight(0xffffff, 0.3);
+    pointLight5.position.set(-60, -20, 0);
+    scene.add(pointLight5);
+
     const lightList = [
-        pointLight1, pointLight2, pointLight3, pointLight4
+        pointLight1, pointLight2, pointLight3, pointLight4, pointLight5
     ];
 
     const lightHelpers = lightList.map(light => new THREE.PointLightHelper(light, 25));
