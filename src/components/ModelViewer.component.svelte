@@ -202,27 +202,28 @@
     const planeParams = {
 
         axialPlane: {
-            "Enable Axial Clipping": false,
+            "Axial Clipping": false,
             "Axial Position": clippingPlaneAxial.constant,
-            "Invert Clipping": false,
-            "Reset Axial Plane" : () => {
+            "Invert Axial": false,
+            "Reset Axial" : () => {
                 clippingPlaneAxial.constant = 1;
             }
         },
 
         saggitalPlane: {
-            "Enable Saggital Clipping": false,
+            "Saggital Clipping": false,
             "Saggital Position": clippingPlaneSaggital.constant,
-            "Invert Clipping": false,
-            "Reset Saggital Plane" : () => {
+            "Invert Saggital": false,
+            "Reset Saggital" : () => {
                 clippingPlaneSaggital.constant = 1;
-            }        },
+            }        
+        },
 
         coronalPlane: {
-            "Enable Coronal Clipping": false,
+            "Coronal Clipping": false,
             "Coronal Position": clippingPlaneCoronal.constant,
-            "Invert Clipping": false,
-            "Reset Coronal Plane" : () => {
+            "Invert Coronal": false,
+            "Reset Coronal" : () => {
                 clippingPlaneCoronal.constant = 1;
             }
         },
@@ -230,7 +231,7 @@
 
     function loadGUI() {
         gui = new dat.GUI();
-        gui.width = 300;
+        gui.width = 350;
 
         // model controls
         sceneObjects.forEach(model => {
@@ -257,32 +258,32 @@
 
         let clippingPlanes = [];
 
-        clippingPlaneFolder.add(planeParams.axialPlane, 'Enable Axial Clipping').onChange(v => {planeToggle(v, clippingPlaneAxial, planeHelpers[0], axPos, axNegate, axReset);});
+        clippingPlaneFolder.add(planeParams.axialPlane, 'Axial Clipping').onChange(v => {planeToggle(v, clippingPlaneAxial, planeHelpers[0], axPos, axNegate, axReset);});
         let axPos = clippingPlaneFolder.add(planeParams.axialPlane, 'Axial Position').min(-100).max(200).onChange(c => clippingPlaneAxial.constant = c)
-        let axNegate = clippingPlaneFolder.add(planeParams.axialPlane, 'Invert Clipping').onChange(() => {
+        let axNegate = clippingPlaneFolder.add(planeParams.axialPlane, 'Invert Axial').onChange(() => {
                 clippingPlaneAxial.negate();
                 planeParams.axialPlane.constant = clippingPlaneAxial.constant;
             }
         )
-        let axReset = clippingPlaneFolder.add(planeParams.axialPlane, 'Reset Axial Plane');
+        let axReset = clippingPlaneFolder.add(planeParams.axialPlane, 'Reset Axial');
 
-        clippingPlaneFolder.add(planeParams.saggitalPlane, 'Enable Saggital Clipping').onChange(v => {planeToggle(v, clippingPlaneSaggital, planeHelpers[1], sagPos, sagNegate, sagReset);});
+        clippingPlaneFolder.add(planeParams.saggitalPlane, 'Saggital Clipping').onChange(v => {planeToggle(v, clippingPlaneSaggital, planeHelpers[1], sagPos, sagNegate, sagReset);});
         let sagPos = clippingPlaneFolder.add(planeParams.saggitalPlane, 'Saggital Position').min(-100).max(200).onChange(c => clippingPlaneSaggital.constant = c)
-        let sagNegate = clippingPlaneFolder.add(planeParams.saggitalPlane, 'Invert Clipping').onChange(() => {
+        let sagNegate = clippingPlaneFolder.add(planeParams.saggitalPlane, 'Invert Saggital').onChange(() => {
                 clippingPlaneSaggital.negate();
                 planeParams.saggitalPlane.constant = clippingPlaneSaggital.constant;
             }
         )
-        let sagReset = clippingPlaneFolder.add(planeParams.saggitalPlane, 'Reset Saggital Plane');
+        let sagReset = clippingPlaneFolder.add(planeParams.saggitalPlane, 'Reset Saggital');
 
-        clippingPlaneFolder.add(planeParams.coronalPlane, 'Enable Coronal Clipping').onChange(v => {planeToggle(v, clippingPlaneCoronal, planeHelpers[2], corPos, corNegate, corReset);});
+        clippingPlaneFolder.add(planeParams.coronalPlane, 'Coronal Clipping').onChange(v => {planeToggle(v, clippingPlaneCoronal, planeHelpers[2], corPos, corNegate, corReset);});
         let corPos = clippingPlaneFolder.add(planeParams.coronalPlane, 'Coronal Position').min(-100).max(200).onChange(c => clippingPlaneCoronal.constant = c)
-        let corNegate = clippingPlaneFolder.add(planeParams.coronalPlane, 'Invert Clipping').onChange(() => {
+        let corNegate = clippingPlaneFolder.add(planeParams.coronalPlane, 'Invert Coronal').onChange(() => {
                 clippingPlaneCoronal.negate();
                 planeParams.coronalPlane.constant = clippingPlaneCoronal.constant;
             }
         )
-        let corReset = clippingPlaneFolder.add(planeParams.coronalPlane, 'Reset Coronal Plane');
+        let corReset = clippingPlaneFolder.add(planeParams.coronalPlane, 'Reset Coronal');
 
         // all off by default
         const planeControls = [axPos, sagPos, corPos, axNegate, sagNegate, corNegate];
