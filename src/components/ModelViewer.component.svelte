@@ -442,6 +442,7 @@
             
             INTERSECTED = null;
             structureName = 'No structure selected';
+            console.log(INTERSECTED.name);
         }
 
 		renderer.render(scene, camera);
