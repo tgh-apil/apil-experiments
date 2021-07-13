@@ -12,7 +12,7 @@
     import { db } from '../firebase';
 
     const modelDocRef = db.collection('models').doc($modelDoc);
-
+ 
     let markersInScene = [];
 
     const unsubscribe = modelDocRef.onSnapshot((snapshot) => {
@@ -431,6 +431,7 @@
                 INTERSECTED.material.emissiveIntensity = 0.5;
 
                 structureName = INTERSECTED.name;
+                console.log(INTERSECTED.name);
             }
 
         } else {
