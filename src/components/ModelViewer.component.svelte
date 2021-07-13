@@ -431,7 +431,7 @@
                 INTERSECTED.material.emissiveIntensity = 0.5;
 
                 structureName = INTERSECTED.name;
-                console.log(INTERSECTED.name);
+                
             }
 
         } else {
