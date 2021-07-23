@@ -13,7 +13,7 @@
         <div class="title-container">
             <h2>{ title }</h2>
             <div class="poster-container">
-                <p>Designed by {poster}</p>
+                <p>Engineered by {poster}</p>
             </div>
         </div>
     </div>
