@@ -31,7 +31,6 @@
             <li><a href="https://www.blender.org/">Blender: Model texturing and compression</a></li>
             <li><a href="https://threejs.org/">three.js: model viewer</a></li>
             <li><a href="https://svelte.dev/">Svelte: front-end framework</a></li>
-            <li><a href="https://apil.ca/toronto-3d-heart-atlas/">Original 3D Atlas</a></li>
         </ul>
     </div>
     <div class="split-container">
