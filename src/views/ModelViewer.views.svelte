@@ -153,7 +153,7 @@
 
 <div class="container">
     <div>
-        <h1>COLLABORATIVE VIEWER</h1>
+        <h1>VIEWER</h1>
         <h2>{currentMouseOver}</h2>
     </div>
     <div>
