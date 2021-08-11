@@ -10,4 +10,7 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 
+auth.useEmulator()
+
 export const db = firebase.firestore();
+

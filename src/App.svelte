@@ -9,6 +9,7 @@
     import ModelViewer from './views/ModelViewer.views.svelte';
     import ModelViewerEperiment from './views/ModelViewerExperiment.view.svelte';
     import NotFound from './views/NotFound.view.svelte';
+import FileUpload from './views/FileUpload.svelte';
     
     hasPopup.update(src => src = false);
 </script>
@@ -23,6 +24,7 @@
         '/profile': Profile,
         '/3dviewer': ModelViewerEperiment,
         '/3dviewer/viewer': ModelViewer,
+        '/file': FileUpload,
         '*': NotFound
     }
 } />

@@ -1,6 +1,7 @@
 <script>
     import LoginButton from './LoginButton.component.svelte';
     import { user } from '../stores.js'
+import FileUpload from '../views/FileUpload.svelte';
 </script>
 
 <nav class="nav-container">
@@ -8,6 +9,9 @@
         <a href='/#/'>Experiments</a>
         <a href='https://github.com/tgh-apil'>Github</a>
         <a href='https://apil.ca/'>apil.ca</a>
+        {#if $user}
+            <a href = '/FileUpload'>Upload Files</a>
+        {/if}
     </div>
     <div class="nav-profile">
         {#if $user}
