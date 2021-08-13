@@ -12,6 +12,7 @@ a webapp to host some of our lab's small digital experiments.
 ## To run
 
 ```
+MUST SUPPLY YOUR OWN CREDENTIALS.JS
 cd into repo directory
 npm install
 ```
