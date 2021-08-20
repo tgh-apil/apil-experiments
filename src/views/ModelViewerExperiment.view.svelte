@@ -9,7 +9,7 @@
             <li>Joshua Qua Hiansen</li>
             <li>Sachin Khargie</li>
             <li>Azad Mashari</li>
-            <li>Max Allegri</li>
+            
         </ul>
                 <h2>Experiment Notes</h2>
         <ul>
