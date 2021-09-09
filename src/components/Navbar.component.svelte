@@ -8,6 +8,9 @@
         <a href='/#/'>Experiments</a>
         <a href='https://github.com/tgh-apil'>Github</a>
         <a href='https://apil.ca/'>apil.ca</a>
+        {#if $user}
+            <a href="/#/fileUpload">File Upload</a>
+        {/if}
     </div>
     <div class="nav-profile">
         {#if $user}
