@@ -47,9 +47,38 @@
 
         comment = '';
     }
+
+
+
+
 </script>
 
-<div class="horizontal-wrapper">
+    <div class="horizontal-wrapper">
+        <div id="comment-container" >
+            <div id="comment-content">
+                {#each commentArray as comment}
+                    <div class='comment-object'>
+                        <CommentBubble userName={comment.poster} timestamp={comment.timestamp.toDate()} comment={comment.comment}/>
+                    </div>
+                {/each}
+            </div>
+        </div>
+        <div>
+            <form>
+                <div class="form-container">
+                    {#if $user}
+                        <input bind:value={comment}/>
+                        <button on:click|preventDefault={handleClick} type="submit">Send</button>
+                    {:else}
+                        <LoginButton />
+                    {/if}
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<!-- <div class="horizontal-wrapper">
     <div id="comment-container" >
         <div id="comment-content">
             {#each commentArray as comment}
@@ -71,7 +100,7 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
 
 <style>
     .horizontal-wrapper {
