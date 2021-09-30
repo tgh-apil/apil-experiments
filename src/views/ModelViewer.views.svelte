@@ -195,6 +195,7 @@
             </div>
             <div>
                 <button on:click={popupViewer}>Back to Model List</button>
+                <!-- <button on:click={() => push('/Feedback/')}>Feedback</button> -->
             </div>
         </div>
     {/if}
@@ -274,6 +275,11 @@
         position: absolute;
         top: 50vh;
         left: 0;
+    }
+
+    .inline{
+        display:inline-block; 
+        margin-right:5px;
     }
 
 </style>

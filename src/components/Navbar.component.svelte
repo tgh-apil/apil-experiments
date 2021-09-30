@@ -8,6 +8,7 @@
         <a href='/#/'>Experiments</a>
         <a href='https://github.com/tgh-apil'>Github</a>
         <a href='https://apil.ca/'>apil.ca</a>
+        <a href="/#/Feedback">Suggestions</a>
         {#if $user}
             <a href="/#/fileUpload">File Upload</a>
         {/if}

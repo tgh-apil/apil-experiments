@@ -445,6 +445,12 @@
 
 		renderer.render(scene, camera);
 	}
+
+    function SuggestionLoad(){
+        window.location = '/#/Feedback/';
+        location.reload();
+        SuggestionLoad.update(src => src = false);
+    }
 	
 	// render/animate loop needed to display in browser
 	function animate() {
@@ -461,6 +467,8 @@
         <div class="model-viewer" bind:this={renderElement} />
     </div>
 </div>
+
+<button on:click={SuggestionLoad}>Suggestion</button>
 
 <style>
 
